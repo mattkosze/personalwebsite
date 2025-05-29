@@ -65,6 +65,15 @@ a.headerText {
   gap: 10px;
   flex-grow: 1;
   overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  touch-action: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.bookShelfBooks > * {
+  pointer-events: auto;
 }
 
 .bookSpine {
@@ -82,7 +91,7 @@ a.headerText {
   overflow: hidden;
   text-overflow: ellipsis;
   max-height: 80%;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: bolder;
   padding-top: 30%;
   text-align: center;

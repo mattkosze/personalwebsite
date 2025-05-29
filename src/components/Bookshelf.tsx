@@ -1,5 +1,6 @@
 import { BookCard } from "./BookCard"
 import type { Book } from "./BookCard"
+import { useState, useRef, useEffect } from "react";
 
 const Books = [
     {title: "Venture Deals", cover: "bookCovers/ventureDealsCover.jpg", author: "Brad Feld", date: "2025", spineColour: "#8B7355", textColour: "#F5F5DC", rating: 4, description: "Good book; scratches the surface of the financial side of startups!"},
@@ -35,11 +36,53 @@ function BookComponent({book}: { book: Book }) {
 }
 
 export function Bookshelf() {
+    const [hoverDirection, setHoverDirection] = useState<null | 'left' | 'right'>(null);
+    const booksContainerRef = useRef<HTMLDivElement>(null);
+    const scrollSpeed = 2;
+
+    useEffect(() => {
+        if (!hoverDirection || !booksContainerRef.current) return;
+        
+        const container = booksContainerRef.current;
+        let animationFrameId: number;
+        
+        const scroll = () => {
+            if (hoverDirection === 'left') {
+                container.scrollLeft -= scrollSpeed;
+            } else {
+                container.scrollLeft += scrollSpeed;
+            }
+            animationFrameId = requestAnimationFrame(scroll);
+        };
+        
+        animationFrameId = requestAnimationFrame(scroll);
+        
+        return () => {
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, [hoverDirection]);
+
     return <div className="bookShelf">
-        <button className="bookShelfButton">&lt;</button>
-        <div className="bookShelfBooks">
+        <button 
+            className="bookShelfButton"
+            onMouseEnter={() => setHoverDirection('left')} 
+            onMouseLeave={() => setHoverDirection(null)}
+        >
+            &lt;
+        </button>
+        <div 
+            className="bookShelfBooks"
+            ref={booksContainerRef}
+        
+        >
             {Books.map(book => <BookComponent book={book} key={book.title} />)}
         </div>
-        <button className="bookShelfButton">&gt;</button>
+        <button 
+            className="bookShelfButton"
+            onMouseEnter={() => setHoverDirection('right')} 
+            onMouseLeave={() => setHoverDirection(null)}
+        >
+                &gt;
+        </button>
     </div>
 }
