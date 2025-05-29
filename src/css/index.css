@@ -1,0 +1,45 @@
+@font-face {
+  font-family: Inter;
+  src: url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+}
+
+:root {
+  font-family: Inter;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #F2F2F0;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.headerText {
+  color: #0367A6;
+  font-family: Inter;
+  font-size: 1.3rem;
+}
+
+a.headerText {
+  color: #0367A6;
+  font-family: Inter;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: Bold;
+}
+
+.navBar {
+  margin: 0 auto;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#linkContainer {
+  width: 20%;
+  justify-content: space-around;
+  display: flex;
+}
