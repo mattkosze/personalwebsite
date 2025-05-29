@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Header />
-      <div>
+      <div className="contentHolder">
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/reading" element={<Reading />}/>

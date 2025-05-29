@@ -7,9 +7,8 @@
   font-family: Inter;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #F2F2F0;
-
+  color: black;
+  background-color: #FFFFFF;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -19,7 +18,8 @@
 .headerText {
   color: #0367A6;
   font-family: Inter;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 a.headerText {
@@ -27,7 +27,7 @@ a.headerText {
   font-family: Inter;
   text-decoration: none;
   font-size: 1rem;
-  font-weight: Bold;
+  font-weight: Medium;
 }
 
 .navBar {
@@ -40,6 +40,61 @@ a.headerText {
 
 #linkContainer {
   width: 20%;
-  justify-content: space-around;
+  justify-content: space-between;
   display: flex;
+}
+
+.contentHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bookShelf {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 20px;
+  width: 40%;
+}
+
+.bookShelfBooks {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-grow: 1;
+  overflow-x: auto;
+}
+
+.bookSpine {
+  height: 210px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.bookSpineText {
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 80%;
+  font-size: 0.8rem;
+  font-weight: bolder;
+  padding-top: 30%;
+  text-align: center;
+}
+
+.bookShelfButton {
+  background-color: transparent;
+  border: none;
+  color: black;
+}
+
+.bookShelfButton:hover {
+  background-color: #f2f4ff;
+  border-radius: 4px;
 }

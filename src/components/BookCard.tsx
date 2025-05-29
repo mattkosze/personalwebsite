@@ -3,8 +3,8 @@ export type Book = {
     cover: string;
     author: string;
     date: string;
-    spineColour: number;
-    textColour: number;
+    spineColour: string;
+    textColour: string;
     rating: number;
     description: string;
 }
@@ -22,4 +22,3 @@ export function BookCard({ book } : {book: Book}) {
         </>
     )
 }
-
