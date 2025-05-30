@@ -13,9 +13,10 @@ export type Book = {
 
 function BookCard({ book } : {book: Book}) {
     const descriptionSplit = book.description.split('\n');
+    const bookId = `book-review-${book.title.toLowerCase().replace(/\s+/g, '-')}`;
 
     return (
-        <div>
+        <div id={bookId}>
             <hr className="reviewDivider"/>
             <div className="bookCard">
                 <img className="bookCardCover" src={book.cover} alt={`${book.title} cover`} />

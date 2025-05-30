@@ -23,9 +23,34 @@ function BookComponent({book}: { book: Book }) {
     const spineColour = book.spineColour;
     const textColour = book.textColour;
 
-    return <div className="bookSpine" style={{background:spineColour, backgroundImage: "url('bookCovers/spineTexture.jpg')", backgroundBlendMode: "overlay"}}>
-        <p className="bookSpineText" style={{color:textColour}}>{title}</p>
-    </div>
+    const handleBookClick = () => {
+        const bookId = `book-review-${title.toLowerCase().replace(/\s+/g, '-')}`;
+        const element = document.getElementById(bookId);
+        
+        if (element) {
+            element.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
+
+    return (
+        <button 
+            className="bookSpine" 
+            style={{
+                background: spineColour, 
+                backgroundImage: "url('bookCovers/spineTexture.jpg')", 
+                backgroundBlendMode: "overlay",
+                cursor: 'pointer',
+                border: 'none',
+                padding: 0
+            }}
+            onClick={handleBookClick}
+        >
+            <p className="bookSpineText" style={{color: textColour}}>{title}</p>
+        </button>
+    );
 }
 
 export function Bookshelf() {
@@ -76,27 +101,30 @@ export function Bookshelf() {
         };
     }, [hoverDirection]);
 
-    return <div className="bookShelf">
-        <button 
-            className="bookShelfButton"
-            onMouseEnter={() => setHoverDirection('left')} 
-            onMouseLeave={() => setHoverDirection(null)}
-        >
-            &lt;
-        </button>
-        <div 
-            className="bookShelfBooks"
-            ref={booksContainerRef}
-        
-        >
-            {Books.map(book => <BookComponent book={book} key={book.title} />)}
+    return <div className="shelfContainer">
+        <div className="bookShelf">
+            <button 
+                className="bookShelfButton"
+                onMouseEnter={() => setHoverDirection('left')} 
+                onMouseLeave={() => setHoverDirection(null)}
+            >
+                &lt;
+            </button>
+            <div 
+                className="bookShelfBooks"
+                ref={booksContainerRef}
+            
+            >
+                {Books.map(book => <BookComponent book={book} key={book.title} />)}
+            </div>
+            <button 
+                className="bookShelfButton"
+                onMouseEnter={() => setHoverDirection('right')} 
+                onMouseLeave={() => setHoverDirection(null)}
+            >
+                    &gt;
+            </button>
         </div>
-        <button 
-            className="bookShelfButton"
-            onMouseEnter={() => setHoverDirection('right')} 
-            onMouseLeave={() => setHoverDirection(null)}
-        >
-                &gt;
-        </button>
+        <h3 style={{padding:0, margin: 0, marginTop: 10, fontSize: 13, fontWeight: 450}}>Click any of the book spines to go to the corresponding book :{`)`}.</h3>
     </div>
 }
