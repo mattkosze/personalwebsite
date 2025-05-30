@@ -1,28 +1,21 @@
-import { BookCard } from "./BookCard"
-import type { Book } from "./BookCard"
+import type { Book } from "./BookReviews"
 import { useState, useRef, useEffect } from "react";
 
-const Books = [
-    {title: "Venture Deals", cover: "bookCovers/ventureDealsCover.jpg", author: "Brad Feld", date: "2025", spineColour: "#8B7355", textColour: "#F5F5DC", rating: 4, description: "Good book; scratches the surface of the financial side of startups!"},
-    {title: "The Wealth of Nations", cover: "bookCovers/ventureDealsCover.jpg", author: "Adam Smith", date: "2025", spineColour: "#355E3B", textColour: "#F5F5DC", rating: 4, description: "Great book and, imo, a must read for anyone interesting in the origins of capitalism as we know it today!"},
-    {title: "Atomic Habits", cover: "bookCovers/ventureDealsCover.jpg", author: "James Clear", date: "2025", spineColour: "#483D8B", textColour: "#E6E6FA", rating: 4, description: "Great insights on building good habits!"},
-    {title: "Sapiens", cover: "bookCovers/ventureDealsCover.jpg", author: "Yuval Noah Harari", date: "2025", spineColour: "#8B4513", textColour: "#F5F5DC", rating: 4, description: "A brief history of humankind."},
-    {title: "Zero to One", cover: "bookCovers/ventureDealsCover.jpg", author: "Peter Thiel", date: "2025", spineColour: "#4A646C", textColour: "#E5E4E2", rating: 4, description: "Notes on startups, or how to build the future."},
-    {title: "Deep Work", cover: "bookCovers/ventureDealsCover.jpg", author: "Cal Newport", date: "2025", spineColour: "#556B2F", textColour: "#FFFAF0", rating: 4, description: "Rules for focused success in a distracted world."},
-    {title: "The Innovators", cover: "bookCovers/ventureDealsCover.jpg", author: "Walter Isaacson", date: "2025", spineColour: "#7C0A02", textColour: "#FAEBD7", rating: 4, description: "How a group of hackers, geniuses, and geeks created the digital revolution."},
-    {title: "The Lean Startup", cover: "bookCovers/ventureDealsCover.jpg", author: "Eric Ries", date: "2025", spineColour: "#36454F", textColour: "#F5F5F5", rating: 4, description: "How today's entrepreneurs use continuous innovation."},
-    {title: "Thinking Fast and Slow", cover: "bookCovers/ventureDealsCover.jpg", author: "Daniel Kahneman", date: "2025", spineColour: "#614051", textColour: "#FFE4C4", rating: 4, description: "A fascinating look at the two systems that drive the way we think."},
-    {title: "Outliers", cover: "bookCovers/ventureDealsCover.jpg", author: "Malcolm Gladwell", date: "2025", spineColour: "#5F8575", textColour: "#F0FFFF", rating: 4, description: "The story of success."},
-    {title: "The Power of Habit", cover: "bookCovers/ventureDealsCover.jpg", author: "Charles Duhigg", date: "2025", spineColour: "#826644", textColour: "#F5F5DC", rating: 4, description: "Why we do what we do in life and business."},
-    {title: "Shoe Dog", cover: "bookCovers/ventureDealsCover.jpg", author: "Phil Knight", date: "2025", spineColour: "#4F666A", textColour: "#FFFFFF", rating: 4, description: "A memoir by the creator of Nike."},
-    {title: "Educated", cover: "bookCovers/ventureDealsCover.jpg", author: "Tara Westover", date: "2025", spineColour: "#5D3954", textColour: "#F8F8FF", rating: 4, description: "A memoir about a woman who kept out of school."},
-    {title: "Bad Blood", cover: "bookCovers/ventureDealsCover.jpg", author: "John Carreyrou", date: "2025", spineColour: "#582C2C", textColour: "#FFFAFA", rating: 4, description: "Secrets and lies in a Silicon Valley startup."},
-    {title: "Originals", cover: "bookCovers/ventureDealsCover.jpg", author: "Adam Grant", date: "2025", spineColour: "#967969", textColour: "#FFFFF0", rating: 4, description: "How non-conformists move the world."},
-    {title: "Becoming", cover: "bookCovers/ventureDealsCover.jpg", author: "Michelle Obama", date: "2025", spineColour: "#4A646C", textColour: "#F5FFFA", rating: 4, description: "A memoir by the former First Lady of the United States."},
-    {title: "Principles", cover: "bookCovers/ventureDealsCover.jpg", author: "Ray Dalio", date: "2025", spineColour: "#3E5F42", textColour: "#F0FFF0", rating: 4, description: "Life and work principles from a successful investor."},
-    {title: "Quiet", cover: "bookCovers/ventureDealsCover.jpg", author: "Susan Cain", date: "2025", spineColour: "#4C516D", textColour: "#F0F8FF", rating: 4, description: "The power of introverts in a world that can't stop talking."},
-    {title: "Steve Jobs", cover: "bookCovers/ventureDealsCover.jpg", author: "Walter Isaacson", date: "2025", spineColour: "#36454F", textColour: "#FFFFFF", rating: 4, description: "The biography of Steve Jobs."},
-    {title: "Grit", cover: "bookCovers/ventureDealsCover.jpg", author: "Angela Duckworth", date: "2025", spineColour: "#79443B", textColour: "#FFFAF0", rating: 4, description: "The power of passion and perseverance."}
+export const Books = [
+    {title: "Venture Deals", cover: "https://m.media-amazon.com/images/I/71uAXl4fuJL._AC_UF1000,1000_QL80_.jpg", author: "Brad Feld", date: "May 2025", spineColour: "#ebebeb", textColour: "#000000", rating: 3.7, description: "A great introduction to the VC world. Balances storytelling and direct value pretty well, but more focused on the latter. Written by two active VC's, it provides a great insider's perspective on what to look for.\nOften referenced by people I consider to be mentors, I thought it wouldn't hurt to take a look. I don't regret it. Even if you aren't actively looking for financing, it's key to understand how the ecosystem works and whether your business fits the venture capital profile -- because not every idea does."},
+    {title: "The Wealth of Nations", cover: "https://m.media-amazon.com/images/I/71ANvymikVL._AC_UF1000,1000_QL80_.jpg", author: "Adam Smith", date: "2025", spineColour: "#003d0b", textColour: "#F5F5DC", rating: 4, description: "\"The accommodation of an industrious and frugal peasant... exceeds that of many an African king.\"\nAt ~1200 pages, it's hard to have a good a low fluff/value ratio. But, an interesting read to anyone interested in economic theory and how it's evolved.\nPublished in 1776, the examples are very outdated, but the gist of many holds surprisingly well. Effectively a discourse on mercantilism, Smith argues for minimal government intervention -- except matters of the \"greater good,\" in which rational actors may not produce the necessary outcome.\nI find the book particularly interesting because his laissez-faire economic theories are evident in later developments by Keynes and Marx, making the book relevant in debates so prevalent today."},
+    {title: "Zero to One", cover: "https://m.media-amazon.com/images/I/51zGCdRQXOL.jpg", author: "Peter Thiel", date: "2025", spineColour: "#4A646C", textColour: "#E5E4E2", rating: 4, description: "Notes on startups, or how to build the future."},
+    {title: "The Innovator's Dilemma", cover: "https://m.media-amazon.com/images/I/81aBi22axsL._AC_UF1000,1000_QL80_.jpg", author: "Walter Isaacson", date: "2025", spineColour: "#2d3e82", textColour: "#FFFFFF", rating: 4, description: "How a group of hackers, geniuses, and geeks created the digital revolution."},
+    {title: "The Lean Startup", cover: "https://m.media-amazon.com/images/I/71sxTeZIi6L.jpg", author: "Eric Ries", date: "2025", spineColour: "#56a1d4", textColour: "#000000", rating: 4, description: "How today's entrepreneurs use continuous innovation."},
+    {title: "Thinking Fast and Slow", cover: "https://m.media-amazon.com/images/I/61fdrEuPJwL.jpg", author: "Daniel Kahneman", date: "2025", spineColour: "#ededed", textColour: "#000000", rating: 4, description: "A fascinating look at the two systems that drive the way we think."},
+    {title: "The Power Broker", cover: "https://m.media-amazon.com/images/I/81sw84h-ZTL._AC_UF1000,1000_QL80_.jpg", author: "Robert A. Caro", date: "2025", spineColour: "#a81d1d", textColour: "#FFFFFF", rating: 4, description: "A fascinating look at the two systems that drive the way we think."},
+    {title: "The Charisma Myth", cover: "https://m.media-amazon.com/images/I/81hS0u0bqXL.jpg", author: "Olivia Fox Cabane", date: "2024", spineColour: "#006104", textColour: "#FFFFFF", rating: 4, description: "A fascinating look at the two systems that drive the way we think."},
+    {title: "How to Win Friends and Influence People", cover: "https://m.media-amazon.com/images/I/71vK0WVQ4rL.jpg", author: "Dale Carnegie", date: "2024", spineColour: "#d60000", textColour: "#000000", rating: 4, description: "A fascinating look at the two systems that drive the way we think."},
+    {title: "Statistics 4th Edition", cover: "https://m.media-amazon.com/images/I/51+Dm4dgucL.jpg", author: "David Freedman", date: "2024", spineColour: "#003d0b", textColour: "#FFFFFF", rating: 3.5, description: "I firmly believe that understanding statistics enhances your understanding of the world. Also, allegedly, one of Ken Griffin's recommended books. \nUnsurprisingly, it's a little bit outdated. Still, great examples and very intuitive. However, anyone looking for a refresher on statistics, choose a more recent book or edition of it."},
+    {title: "Built to Last", cover: "https://m.media-amazon.com/images/I/61-+RJemWdL._AC_UF1000,1000_QL80_.jpg", author: "Jim Collins", date: "2024", spineColour: "#f0ebe7", textColour: "#000000", rating: 4, description: "One way "},
+    {title: "The Mom Test", cover: "https://m.media-amazon.com/images/I/61ixLoT4lyL.jpg", author: "Rob Fitzpatrick", date: "2024", spineColour: "#ff1b9d", textColour: "#000000", rating: 5, description: "An essential guide on how to ask the right questions. If an entrepreneur could read only one book, it should be this.\nFew books provide this much value in this dense a package, and I say that in the best way possible. It succinctly describes\nSpoiler alert: it doesn't actually involve your mom... "},
+    {title: "Hard Thing About Hard Things", cover: "https://m.media-amazon.com/images/I/810u9MkT3SL.jpg", author: "Ben Horowitz", date: "2024", spineColour: "#212121", textColour: "#fc7900", rating: 5, description: "An essential guide on how to ask the right questions. If an entrepreneur could read only one book, it should be this.\nFew books provide this much value in this dense a package, and I say that in the best way possible. It succinctly describes\nSpoiler alert: it doesn't actually involve your mom... "},
+
 ]
 
 function BookComponent({book}: { book: Book }) {
@@ -39,6 +32,27 @@ export function Bookshelf() {
     const [hoverDirection, setHoverDirection] = useState<null | 'left' | 'right'>(null);
     const booksContainerRef = useRef<HTMLDivElement>(null);
     const scrollSpeed = 2;
+
+    useEffect(() => {
+        const container = booksContainerRef.current;
+        if (!container) return;
+        
+        const preventWheel = (e: WheelEvent) => {
+            e.preventDefault();
+        };
+        
+        const preventTouch = (e: TouchEvent) => {
+            e.preventDefault();
+        };
+        
+        container.addEventListener('wheel', preventWheel, { passive: false });
+        container.addEventListener('touchmove', preventTouch, { passive: false });
+        
+        return () => {
+            container.removeEventListener('wheel', preventWheel);
+            container.removeEventListener('touchmove', preventTouch);
+        };
+    }, []);
 
     useEffect(() => {
         if (!hoverDirection || !booksContainerRef.current) return;

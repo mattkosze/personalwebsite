@@ -4,8 +4,7 @@
 }
 
 :root {
-  font-family: Inter;
-
+  font-family: Helvetica;
   color-scheme: light dark;
   color: black;
   background-color: #FFFFFF;
@@ -17,14 +16,16 @@
 
 .headerText {
   color: #0367A6;
-  font-family: Inter;
+  font-family: Helvetica;
   font-size: 1.5rem;
   font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.117);
+  
 }
 
 a.headerText {
   color: #0367A6;
-  font-family: Inter;
+  font-family: Helvetica;
   text-decoration: none;
   font-size: 1rem;
   font-weight: Medium;
@@ -44,19 +45,24 @@ a.headerText {
   display: flex;
 }
 
-.contentHolder {
+.content {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  max-width: 100%;
+}
+
+.readingContent {
+  width: 40%
 }
 
 .bookShelf {
   display: flex;
   flex-direction: row;
   gap: 10px;
-  padding: 20px;
-  width: 40%;
+  isolation: isolate;
+  position: relative;
 }
 
 .bookShelfBooks {
@@ -69,7 +75,7 @@ a.headerText {
   -ms-overflow-style: none;
   touch-action: none;
   user-select: none;
-  pointer-events: none;
+  pointer-events: none; 
 }
 
 .bookShelfBooks > * {
@@ -93,7 +99,7 @@ a.headerText {
   max-height: 80%;
   font-size: 0.7rem;
   font-weight: bolder;
-  padding-top: 30%;
+  margin-inline-start: 30%;
   text-align: center;
 }
 
@@ -104,6 +110,72 @@ a.headerText {
 }
 
 .bookShelfButton:hover {
-  background-color: #f2f4ff;
+  background-color: #f2f4ffbf;
   border-radius: 4px;
+}
+
+.reviewContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewDivider {
+  opacity: 0.1;
+  background-color: black;
+  width: 100%;
+  height: 1px;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.bookCard {
+  display: flex;
+  gap: 30px;
+
+}
+
+.bookCardCover {
+  height: 130px;
+  border: rgb(242, 242, 242) 1px solid;
+}
+
+.bookCardText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bookCardTextTitle {
+  margin: 0px;
+  margin-bottom: .6rem;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.bookCardTextAuthor {
+  margin: 0px;
+  margin-bottom: .6rem;
+  color: rgba(0, 0, 0, 0.416);
+  font-weight: 400;
+  font-size: .85em;
+}
+
+.bookCardTextInfo{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  color: rgba(0, 0, 0, 0.731);
+  font-weight: 400;
+  font-size: .85em;
+  margin: 0px;
+  margin-bottom: 1.2rem;
+}
+
+.bookCardTextDesc{
+  margin: 0px;
+  text-align: left;
+  font-size: .9em;
+  font-weight: 400;
+  line-height: 1.5;
 }

@@ -1,6 +1,5 @@
-import { Header } from "../components/Header"
 import { Bookshelf } from "../components/Bookshelf"
-import { BookCard } from "../components/BookCard"
+import { BookReviews } from "../components/BookReviews"
 
 function getBooks() {
     return;
@@ -8,11 +7,9 @@ function getBooks() {
 
 export function Reading() {
     return (
-        <>
+        <div className="readingContent">
             <Bookshelf />
-            <h1>
-                Reading Page
-            </h1>
-        </>
+            <BookReviews />
+        </div>
     )
 }

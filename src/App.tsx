@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import './css/App.css'
-import { BookCard } from './components/BookCard'
 import { Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { Reading } from './pages/Reading'
@@ -11,7 +9,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="contentHolder">
+      <div className="content">
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/reading" element={<Reading />}/>
